@@ -16,8 +16,12 @@ gem 'puma', '~> 3.7'
 gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'sass-rails', '>= 3.2'
 
-
+#gem 'bcrypt', '~> 3.1.7'
+#gem uninstall bcrypt
+#gem  'bcrypt' '--platform=ruby'
 # Use SCSS for stylesheets
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
