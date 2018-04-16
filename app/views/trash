@@ -1,3 +1,11 @@
+#drop_users
+class DropUsers < ActiveRecord::Migration[5.1]
+  def change
+  #  drop_table :users
+  end
+end
+
+#add_columns_to_users
 class AddColumnsToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :username, :string
