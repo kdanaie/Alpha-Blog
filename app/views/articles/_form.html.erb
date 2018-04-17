@@ -1,12 +1,4 @@
 <%= render 'shared/errors', obj: @article %>
-<% if @article.errors.any? %>
-<h2>Following errors provented article to be saved!</h2>
-  <ul>
-     <% @article.errors.full_messages.each do |msg| %>
-       <li><%= msg %></li>
-     <% end %>
-  </ul>
-<% end %>
 <div class="row">
   <div class="col-xs-12">
     <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
@@ -25,6 +17,15 @@
       <div class="col-sm-8">
         <%= f.text_area :description, rows: 10, class:"form-control", placeholder:" Body part of article" %>
       </div>
+    </div>
+    <div class="form-group">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+          <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+        <% end %>
+      </div>
+    </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

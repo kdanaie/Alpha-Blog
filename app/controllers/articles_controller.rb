@@ -45,12 +45,18 @@ def create
   end
 
 private
+  def article_params
+  params.require(:article).permit(:title, :description, category_ids: [])
+  end
+
   def set_article
     @article = Article.find(params[:id])
   end
+
   def article_params
       params.require(:article).permit(:title,:description)
   end
+  
   def require_same_user
     #if current_user != @user
     if current_user != @article.user and !current_user.admin?
